@@ -14,12 +14,15 @@ END_DESCRIPTION
   spec.homepage      = "https://github.com/JEG2/signal_lamp"
   spec.license       = "MIT"
 
-  spec.files         = `git ls-files -z`.split("\x0")
-  spec.test_files    = spec.files.grep(%r{\Aspec/})
-  spec.require_paths = %w[lib]
+  spec.files            = `git ls-files -z`.split("\x0")
+  spec.test_files       = spec.files.grep(%r{\Aspec/})
+  spec.extra_rdoc_files = %w[README.md]
+  spec.rdoc_options    << "--main" << "README.md"
+  spec.require_paths    = %w[lib]
 
   spec.add_development_dependency "bundler", "~> 1.6"
   spec.add_development_dependency "rake",    "~> 10.3"
   spec.add_development_dependency "rspec",   "~> 2.14"
   spec.add_development_dependency "ZenTest", "~> 4.10"
+  spec.add_development_dependency "rdoc",    "~> 4.1"
 end
