@@ -5,6 +5,8 @@ A simple tool for decoupling Ruby object systems.
 ## Synopsis
 
 ```ruby
+require "signal_lamp"  # Step 0:  load Signal Lamp
+
 class Datum
   include SignalLamp::LampHolder  # Step 1:  include the event methods
 
@@ -60,9 +62,9 @@ tens = Datum.new(30)
 # 3. All signal arguments are passed through to the watcher
 #
 changed_event_regex = /\Achanged:/
-[ones, tens].each |datum|
-  datum.watch_for(changed_event_regex) do |event, changed_datum, details|
-    printf "%s's `%s' changed from %i to %i",
+[ones, tens].each do |datum|
+  datum.lamp.watch_for(changed_event_regex) do |event, changed_datum, details|
+    printf "%s's `%s' changed from %i to %i\n",
            changed_datum.object_id,
            event.sub(changed_event_regex, ""),
            details.fetch(:old),
@@ -80,7 +82,9 @@ ones.value += 1
 tens.value += 10
 
 # this shows that the objects communicated
-watcher.total  # => 
+watcher.total  # => 42
+# >> 70302533065580's `value' changed from 1 to 2
+# >> 70302533065560's `value' changed from 30 to 40
 ```
 
 ## Description
