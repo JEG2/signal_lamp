@@ -113,6 +113,10 @@ or add it to your `Gemfile`:
 gem "signal_lamp"
 ```
 
+## Documentation
+
+[Full public API documentation](http://rdoc.info/gems/signal_lamp/frames) is available online.
+
 ## Contributing
 
 If you have grand ideas about cool new features that could be added to Signal Lamp, I'm probably not interested.  Sorry.  I very much want this library to stay a simple tool that is easy to fully understand.
