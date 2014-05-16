@@ -1,7 +1,7 @@
 require_relative "lib/signal_lamp/version"
 
 Gem::Specification.new do |spec|
-  spec.name          = "Signal Lamp"
+  spec.name          = File.basename(__FILE__, ".gemspec")
   spec.version       = SignalLamp::VERSION
   spec.authors       = ["James Edward Gray II (JEG2)"]
   spec.email         = %w[james@graysoftinc.com]
