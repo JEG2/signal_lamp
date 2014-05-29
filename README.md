@@ -92,7 +92,7 @@ watcher.total  # => 42
 This library is pretty much a port of [the Events module in Backbone.js](http://backbonejs.org/#Events), with minor changes:
 
 * The interface was made a little more Rubyish with the use of blocks, `===`, etc.
-* All event methods were moved behind an prefix to minimize the impact on an object's API
+* All event methods were moved behind a prefix to minimize the impact on an object's API
 * Simple identifiers are used to classify, and optionally remove, watcher to signaler relationships
 
 In other words, this is a system for decoupling objects.  Some objects become "signalers" that tell anyone who is interested when "events" happen.  Other objects act as "watchers" waiting for and acting on those events.
