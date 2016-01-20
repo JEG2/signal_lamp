@@ -21,7 +21,7 @@ class Datum
     @value    = new_value
 
     # Step 2:  signal events when interesting things happen
-    lamp.signal("changed:value", self, old: old_value, new: new_value)
+    lamp.signal("changed:value", self, old_value: old_value, new_value: new_value)
   end
 end
 
@@ -46,8 +46,8 @@ class TotalWatcher
     @total += value
   end
 
-  def record_value_change(old: , new: )
-    record_value(new - old)
+  def record_value_change(old_value: , new_value: )
+    record_value(new_value - old_value)
   end
 end
 
@@ -67,8 +67,8 @@ changed_event_regex = /\Achanged:/
     printf "%s's `%s' changed from %i to %i\n",
            changed_datum.object_id,
            event.sub(changed_event_regex, ""),
-           details.fetch(:old),
-           details.fetch(:new)
+           details.fetch(:old_value),
+           details.fetch(:new_value)
   end
 end
 
